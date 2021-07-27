@@ -9,7 +9,7 @@ namespace UnitTests
         public void Setup()
         {
         }
-
+        /*
         [TestCase(5)]
         [TestCase(8)]
         [TestCase(12)]
@@ -45,6 +45,57 @@ namespace UnitTests
         public void GivenATimeBetween24and5_Greeting_ReturnsGoBed(int time)
         {
             Assert.That(Program.Greeting(time), Is.EqualTo("Go to bed!"));
+        } */
+
+        public class ClassificationTests
+        {
+            [TestCase(1)]
+            [TestCase(2)]
+            [TestCase(3)]
+            public void GivenAnAgeYoungerThan4_Result_ReturnsTooYoung(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("You are too young to watch films."));
+            }
+
+            [TestCase(4)]
+            [TestCase(5)]
+            [TestCase(7)]
+            public void GivenAnAgeBetween4And8_Result_ReturnsWatchU(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("U films are available."));
+            }
+
+            [TestCase(8)]
+            [TestCase(10)]
+            [TestCase(11)]
+            public void GivenAnAgeBetween8And12_Result_ReturnsWatchUPG(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("U & PG films are available."));
+            }
+
+            [TestCase(12)]
+            [TestCase(13)]
+            [TestCase(14)]
+            public void GivenAnAgeBetween12And15_Result_ReturnsWatchUPG12(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("U, PG & 12 films are available."));
+            }
+
+            [TestCase(15)]
+            [TestCase(16)]
+            [TestCase(17)]
+            public void GivenAnAgeBetween15And18_Result_ReturnsWatchUPG1215(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("U, PG, 12 & 15 films are available."));
+            }
+
+            [TestCase(18)]
+            [TestCase(25)]
+            [TestCase(40)]
+            public void GivenAnAgeBetween15And18_Result_ReturnsWatchAll(int age)
+            {
+                Assert.That(Program.AvailableClassifications(age), Is.EqualTo("All films are available."));
+            }
         }
     }
 }
