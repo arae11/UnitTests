@@ -42,5 +42,34 @@ namespace TestFirstExercises_Tests
             var result = Methods.EvenOdd(x);
             Assert.IsFalse(result);
         }
+
+        [TestCase(-3)]
+        public void GivenANegativeParameter_SumEvenFive_ReturnsZero(int max)
+        {
+            Assert.That(Methods.SumEvenFive(max), Is.EqualTo(expResult));
+        }
+
+        [TestCase(0)]
+        public void GivenAParameterOfZero_SumEvenFive_ReturnsZero(int max)
+        {
+            Assert.That(Methods.SumEvenFive(max), Is.EqualTo(expResult));
+        }
+
+        [TestCase(5)]
+        [TestCase(0, 0)]
+        [TestCase(1, 0)]
+        [TestCase(10, 35)]
+        [TestCase(22, 152)]
+        [TestCase(9, 25)]
+        public void SumEvenFive_ReturnsExpectedResult(int max)
+        {
+            Assert.That(Methods.SumEvenFive(max), Is.EqualTo(expResult));
+        }
+
+        [TestCase(0)]
+        public void GivenAnyStringExceptPassword_CheckInput_ReturnsFalse(string input)
+        {
+            Assert.That(Methods.SumEvenFive(max), Is.EqualTo(expResult));
+        }
     }
 }

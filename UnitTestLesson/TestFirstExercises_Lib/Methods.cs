@@ -23,13 +23,13 @@ namespace TestFirstExercises
         // Return a double rounded to 3 decimal places.
         public static double BODMAS(int inputNumber)
         {
-            return Math.Round((((double)inputNumber * inputNumber) + 101) / 7 - 4, 3);
+            return (Math.Round((((double)inputNumber * (double) inputNumber) + 101) / 7 - 4, 3));
         }
 
         // implement this method so that it returns true if num is even, otherwise false
         public static bool EvenOdd(int num)
         {
-            if (num%2 == 0)
+            if (num % 2 == 0)
             {
                 return true;
             }
@@ -44,17 +44,25 @@ namespace TestFirstExercises
         // that are divisible by either 2 or 5
         public static int SumEvenFive(int max)
         {
-            if (max % 2 || max % 5)
-            { 
+            int sum = 0;
+
+            for (int i = 0; i == max; i++)
+            {
+                if (i % 2 == 0 || i % 5 == 0)
+                {
+                    sum += i;
+                }
             }
-            return -1;
+            return sum;
         }
 
         // implement this method so it returns true if input is "password"
         // regardless of case
         public static bool CheckInput(string input)
         {
-            if (input = )
+            input = input.ToLower();
+
+            if (input == "password")
             {
                 return true;
             }
@@ -68,6 +76,12 @@ namespace TestFirstExercises
         // of all the numbers in the list
         public static int SumList(List<int> list)
         {
+            int sum = 0;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                sum += list.Count;
+            }
             return -1;
         }
     }
